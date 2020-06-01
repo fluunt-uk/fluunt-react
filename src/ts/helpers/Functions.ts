@@ -1,5 +1,5 @@
 import { bindActionCreators } from 'redux';
-import { StateTypes, SetStatus, SetDefault} from '..';
+import { StateTypes, SetStatus, SetDefault, store} from '..';
 
 
 export function mapObject(object:any, callback:any) {
@@ -21,4 +21,22 @@ export function mapStateToProps(state:StateTypes){
     Components: state.Components,
     Customers: state.Customers
   };
+}
+
+
+
+//Debugging Store
+declare global 
+{ 
+    interface Window { store:any, debug:any } 
+}
+
+window.debug = 
+{
+    dbval: false,
+    set(val:boolean) { 
+        this.dbval = val;
+        window.store = (this.dbval) ? store : null;
+        return `Store Debugging is ${(this.dbval) ? "Active": "Inactive"}`
+    },
 }

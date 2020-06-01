@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route , NavLink } from "react-router-dom"
-import { Home, Ads, mapStateToProps, StateTypes, ComingSoon} from '../'
+import { Home, Ads, mapStateToProps, StateTypes, ComingSoon, Blank} from '../'
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Logo_2} from "../../resources"
-import '../../css/app.css';
+
 
 class NavBar extends Component<StateTypes>{
     render(){
@@ -22,8 +22,8 @@ class NavBar extends Component<StateTypes>{
                     </nav>
                     <Route path ='/'       exact component={Home} /> 
                     <Route path='/ads'     exact  component={Ads} />
-                    <Route path ='/refs'   exact component={Ads} /> 
-                    <Route path='/aus'     exact  component={Ads} />
+                    <Route path ='/refs'   exact component={Blank} /> 
+                    <Route path='/aus'     exact  component={Blank} />
                 </div>
             </Router>
         )   

@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../css/app.scss"
 
-const ComingSoon: React.FC = () => {
+export function ComingSoon(){
     return (
         <div className="container">
             <div className="center">
@@ -10,5 +10,3 @@ const ComingSoon: React.FC = () => {
         </div>
     );
 }
-
-export default ComingSoon;
