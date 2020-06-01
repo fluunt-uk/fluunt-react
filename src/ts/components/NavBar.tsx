@@ -3,7 +3,7 @@ import { Home, Ads, mapStateToProps, StateTypes, ComingSoon} from '../'
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Logo_2} from "../../resources"
-import '../../css/app.css';
+import '../../css/App.css';
 
 class NavBar extends Component<StateTypes>{
     render(){

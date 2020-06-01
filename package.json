@@ -16,13 +16,17 @@
     "react-scripts": "3.4.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "typings-for-css-modules-loader": "^1.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start":    "npx serve -s build",
+    "devstart": "react-scripts start",
+    "build":    "react-scripts build",
+    "test":     "react-scripts test",
+    "eject":    "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
