@@ -1,3 +1,3 @@
-export * from "./components";
-export * from "./helpers"
-export * from "./redux"
+export * from "./components/index";
+export * from "./helpers/index"
+export * from "./redux/index"

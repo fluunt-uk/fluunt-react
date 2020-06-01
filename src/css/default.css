@@ -26,7 +26,6 @@ li
 {
   position: relative;
   height: 20%;
-
 }
 
 .logo2
@@ -34,7 +33,6 @@ li
   position: relative;
   height: 30px;
   margin-right: 0;
-  z-index: 1000;
   float: left;
 }
 

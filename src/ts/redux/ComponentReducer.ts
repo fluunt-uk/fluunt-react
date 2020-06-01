@@ -3,7 +3,7 @@ import { SET_STATUS, SET_DEFAULT } from ".";
 
 const initialState : object = {LoginPageState:false}
 
-export default function ComponentReducer(state = initialState, action:AnyAction):object{
+export function ComponentReducer(state = initialState, action:AnyAction):object{
     const payload = action.payload
     switch (action.type){
         case SET_STATUS:

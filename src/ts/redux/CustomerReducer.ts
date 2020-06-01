@@ -7,12 +7,9 @@ import
     MODIFY_CUSTOMER 
 } from "..";
 
-
-
-
 const initialState:Array<CustomerType> =  []
 
-export default function CUSTOMERReducer(state = initialState, action:AnyAction):Array<CustomerType>{
+export function CustomerReducer(state = initialState, action:AnyAction):Array<CustomerType>{
     switch (action.type){
         case ADD_CUSTOMER:
             case REMOVE_CUSTOMER:
