@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 const Register: React.FC = () => {
   return (
     <div className="Register">
-      Page Not Finished  - refer to path src/ts/componenents/register
+     
+      Page Under Construction
       <form className="n_form" onSubmit={(e:any) =>{}} >
         <input autoComplete='username' id='user'  type="text" className="uname" placeholder={"Username"}/>
         <input autoComplete='email'    id='email' type="text" className="email" placeholder={"E-Mail "}/> 

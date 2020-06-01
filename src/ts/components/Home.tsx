@@ -1,15 +1,7 @@
-import { 
-  Login, 
-  Register, 
-  mapDispatchToProps, 
-  mapStateToProps, 
-  StateTypes,
-  PropItems,
-  Logo
-} from '.';
-
+import { Login, Register, mapDispatchToProps, mapStateToProps, StateTypes, PropItems } from '../';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Logo_1} from "../../resources"
 
 class Home extends Component<PropItems & StateTypes>{
   
@@ -17,7 +9,7 @@ class Home extends Component<PropItems & StateTypes>{
     let LState = this.props.Components.LoginPageState
     return(
       <div className="home_container">
-        <img className="logo" src={Logo} alt="logo"/>
+        <img className="logo" src={Logo_1} alt="logo"/>
         {(LState) ? <Login/> : <Register/>}
         <div className='home_btn_container'>
           <button className={(LState)  ?"btn_active" :"btn_inactive"} onClick={()=>{this.props.Status({LoginPageState:true})}}>Login</button>

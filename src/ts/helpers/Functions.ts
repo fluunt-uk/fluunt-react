@@ -1,5 +1,5 @@
 import { bindActionCreators } from 'redux';
-import { StateTypes, SetStatus, SetDefault} from '.';
+import { StateTypes, SetStatus, SetDefault} from '..';
 
 
 export function mapObject(object:any, callback:any) {

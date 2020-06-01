@@ -1,6 +1,6 @@
-export {default as ComponentReducer } from "./ComponentReducer"
-export {default as CustomerReducer } from "./CustomerReducer"
-export { rootReducer } from "./RootReducer"
-export { store } from "./Store"
+
 export * from "./CustomerActions"
 export * from "./ComponentActions"
+export { ComponentReducer } from "./ComponentReducer"
+export { CustomerReducer } from "./CustomerReducer"
+export { store } from "./Store"
