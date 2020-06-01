@@ -5,13 +5,11 @@ nav{
   background-color: black;
   height: 4.5vh;
   width: 100%;
-  z-index: 0;
+  z-index: 999999;
  
 }
 .nav_global{
   position: relative;
-  /* overflow: hidden;
-  display: inline; */
   z-index: 0;
  }
 
@@ -40,18 +38,6 @@ a.active {
 
 
 /*------------------ Home Page ------------------*/
-
-input[type=text], input[type=number],select {
-  width: 100%;
-  padding: 8px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-
 .home_container{
   position: block;
   margin-top: 10vw;
@@ -60,16 +46,15 @@ input[type=text], input[type=number],select {
   height: 30em;
   width: 30em;
   background:#fff;
-  z-index:1;
+  z-index:0;
   overflow: hidden;
 
 }
-
-
 .home_btn_container{
   background-color:#000;
   height:50px;
   border-radius: 10px;
+  z-index: 0;
 }
 
 .btn_active{
@@ -79,6 +64,7 @@ input[type=text], input[type=number],select {
   border-top-right-radius: 10px;
   margin-top: 2px;
   background-color:#fff;
+  z-index: 0;
   
   
   text-transform:uppercase;
@@ -104,6 +90,7 @@ input[type=text], input[type=number],select {
   width:49%;
   height:45px;
   border:none;
+  z-index: 0;
 }
 
 .btn_inactive:hover {
@@ -111,18 +98,15 @@ input[type=text], input[type=number],select {
 }
 
 
-.host_name_input{
-  display:relative;
-  height:50px;
-  width:5vw;
+input[type=text], input[type=number],select {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-
-
-
-/* Inpsector inputs */
-
-
-
 
 input[type=submit] {
   width: 100%;
@@ -136,7 +120,6 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #3A99FC;
 }
-
 
 /*------------------ Collapsibles ------------------*/
 .collapsible_btn
@@ -156,20 +139,4 @@ input[type=submit]:hover {
 }
 
 
-.templateGridContainer
-{
-  width:"100%";
-  height: 50px;
-  vertical-align: middle;
-  color: white;
-  border: 1px solid transparent;
-  background-color:#007DFF;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.templateGridContainer:hover
-{
-  border: 1px solid black;
-}
 
