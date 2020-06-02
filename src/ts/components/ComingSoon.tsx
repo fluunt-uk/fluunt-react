@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../css/app.scss"
+import "../../css/comingsoon.css"
 
 const ComingSoon: React.FC = () => {
     return (

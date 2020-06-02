@@ -26,21 +26,21 @@
     height: 50px;
     top: 50%;
     left: 45%;
-    margin-left: -50px; /* margin is -0.5 * dimension */
+    margin-left: -50px;
     margin-top: -25px;
     z-index: 9999999;
     color: white;
     font-family: "Courier New", sans-serif;
 }​
 
-footer {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 9999999;
-}
+ footer {
+     position: absolute;
+     bottom: 5px;
+     left: 0;
+     right: 0;
+     text-align: center;
+     z-index: 9999999;
+ }
 
 footer > * {
     font-family: 'uni_sansheavy_caps', sans-serif;
