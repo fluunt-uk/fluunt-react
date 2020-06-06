@@ -1,50 +1,62 @@
 {
-  "name": "pillar-frontend",
+  "name": "fluunt-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^12.12.22",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "common-tags": "^1.8.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-native": "^0.62.2",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.4.0",
-    "redux": "^4.0.4",
+    "axios": "^0.19.0",
+    "base-64": "^0.1.0",
+    "bootstrap": "^4.1.3",
+    "chart.js": "^2.7.3",
+    "daterangepicker": "^3.0.3",
+    "file-saver": "^2.0.0",
+    "history": "latest",
+    "html2pdf.js": "^0.9.1",
+    "i18next": "^13.0.0",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "jspdf": "^1.5.2",
+    "moment": "^2.22.2",
+    "popper.js": "^1.14.5",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-bootstrap-table-next": "^2.0.0",
+    "react-bootstrap-table2-filter": "^1.1.0",
+    "react-bootstrap-table2-paginator": "^2.0.0",
+    "react-breadcrumbs": "^2.1.6",
+    "react-breadcrumbs-dynamic": "^1.1.1",
+    "react-dom": "^16.6.3",
+    "react-i18next": "^8.4.0",
+    "react-js-pagination": "^3.0.2",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-dynamic-breadcrumbs": "^2.1.1",
+    "react-scripts": "^2.1.8",
+    "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "typescript": "^3.7.4",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "typings-for-css-modules-loader": "^1.7.0"
+    "simple-react-validator": "^1.0.1",
+    "uuid": "^3.3.2",
+    "xlsx": "^0.14.1"
   },
   "scripts": {
-    "start":    "npx serve -s build",
+    "start": "npx serve -s build",
     "devstart": "react-scripts start",
-    "build":    "react-scripts build",
-    "test":     "react-scripts test",
-    "eject":    "react-scripts eject"
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "typings-for-css-modules-loader": "^1.7.0"
-  }
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "react-through": "latest"
+  },
+  "proxy": "http://35.179.11.178:5000"
 }
