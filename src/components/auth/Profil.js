@@ -13,7 +13,6 @@ class Profil extends Component {
 
     }
 
-
     render() {
 
         if (!this.props.currentUser) {

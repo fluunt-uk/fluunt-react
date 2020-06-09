@@ -7,8 +7,7 @@ export class AuthService {
 
 
     static login(data) {
-        //return apiClient.post('mock', data)
-        return apiClient.fetch('auth', data)
+        return apiClient.post('auth', data)
     }
 
     static register(data) {

@@ -57,6 +57,5 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
     "react-through": "latest"
-  },
-  "proxy": "http://35.179.11.178:5000"
+  }
 }

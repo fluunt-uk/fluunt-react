@@ -9,23 +9,16 @@ export const login = (user, ownProps) => {
     return (dispatch) => {
 
         dispatch({type: SHOW_SPINNER})
-        console.log(user);
+
         AuthService.login(user).then(response => {
             if (response.status === 200) {
-                response.json().then((data) => {
-                    console.log(data);
-                    localStorage.setItem('currentUser', JSON.stringify(response.data))
-                    dispatch({type: AUTH_SUCCESS})
-                    dispatch({type: HIDE_SPINNER})
-                });
+                localStorage.setItem('currentUser', JSON.stringify(response.data))
+                dispatch({type: HIDE_SPINNER})
+                dispatch({type: AUTH_SUCCESS})
                 ownProps.history.push('/')
             } else {
-                console.log(response.json)
                 dispatch({type: HIDE_SPINNER})
-                response.json().then((data) => {
-                    console.log(data);
-                    showErrorAlert(dispatch, 'failed response' + data)
-                });
+                showErrorAlert(dispatch, 'failed operation')
             }
         }, error => {
             dispatch({type: HIDE_SPINNER})
@@ -33,6 +26,7 @@ export const login = (user, ownProps) => {
         })
     }
 }
+
 
 /**
  * register method

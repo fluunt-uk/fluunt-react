@@ -21,9 +21,7 @@ class Register extends Component {
 
         this.register = this.register.bind(this)
         this.changeHandler = this.changeHandler.bind(this)
-
     }
-
 
     changeHandler(event) {
         const name = event.target.name
