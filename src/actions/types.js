@@ -19,4 +19,3 @@ export const SEARCH_ADVERTS = 'SEARCH_ADVERTS';
 export const DELETE_USER = 'DELETE_USER';
 export const GET_USERS = 'GET_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
-

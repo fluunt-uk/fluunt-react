@@ -25,6 +25,7 @@
     "react-breadcrumbs": "^2.1.6",
     "react-breadcrumbs-dynamic": "^1.1.1",
     "react-dom": "^16.6.3",
+    "react-google-recaptcha": "^2.1.0",
     "react-i18next": "^8.4.0",
     "react-js-pagination": "^3.0.2",
     "react-redux": "^6.0.0",

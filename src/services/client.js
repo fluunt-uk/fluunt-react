@@ -6,15 +6,17 @@ const getClientAxios = () => {
     const options = {
         baseURL: 'http://35.179.11.178:5000/',
         headers: {
+            //TODO: remove, temporary for testing
             'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJzaWduaW5fdXNlciIsImV4cCI6MTY5ODU4ODY5MiwianRpIjoiTk9UX1NFVCIsImlhdCI6MTU4NzU4ODM5MiwiaXNzIjoiYXV0aCIsIm5iZiI6MTU4NzU4ODM5Miwic3ViIjoicmVnaXN0ZXIifQ.bQjWaMAxrl7dgK2JO5ZOBGXiGtf-O82tquyolRwYS3U",
             'Content-Type': 'application/json'
         }
     };
 
-    // if (currentUser) {
-    //     options.headers.Authorization = 'Bearer ' + currentUser.token;
-    //     options.headers.role = '' + currentUser.role === '0' ? 'admin' : 'editor';
-    // }
+    if (currentUser) {
+        options.headers.Authorization =  currentUser.access_token;
+        //specif user permission?
+        //options.headers.role = '' + currentUser.role === '0' ? 'admin' : 'editor';
+    }
 
     const clientAxios = axios.create(options);
     return clientAxios;

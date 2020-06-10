@@ -1,6 +1,6 @@
 import {AUTH_SUCCESS, AUTH_LOGOUT, SHOW_SPINNER, HIDE_SPINNER} from './types'
 import {AuthService} from "../services/authService"
-import {showErrorAlert} from "./AlertActions";
+import {showErrorAlert, showSuccessAlert} from "./AlertActions";
 
 /**
  * Login method
@@ -13,8 +13,10 @@ export const login = (user, ownProps) => {
         AuthService.login(user).then(response => {
             if (response.status === 200) {
                 localStorage.setItem('currentUser', JSON.stringify(response.data))
+                console.log(response.data)
                 dispatch({type: HIDE_SPINNER})
                 dispatch({type: AUTH_SUCCESS})
+                showSuccessAlert(dispatch, 'Login success' )
                 ownProps.history.push('/')
             } else {
                 dispatch({type: HIDE_SPINNER})

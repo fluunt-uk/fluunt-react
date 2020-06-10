@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect, withRouter} from "react-router-dom"
 import connect from "react-redux/es/connect/connect";
+import "./profile.css"
 
 
 class Profil extends Component {
@@ -30,10 +31,16 @@ class Profil extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="card bg-light mb-3 mt-5 pt-5" v-if="user">
+                <div className="card bg-light " v-if="user">
                     <div className="card-body">
-                        <h5 className="card-title">{this.props.currentUser.name}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{this.props.currentUser.email}</h6>
+
+                        <div className="">
+                            <h6 className=""> { " First Name   " + this.props.currentUser.user_data.firstname}</h6>
+                        </div>
+
+                        <div className="">
+                            <h6 className=""> { " Email :  " + this.props.currentUser.user_data.email}</h6>
+                        </div>
                     </div>
                 </div>
             </div>

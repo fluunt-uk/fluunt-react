@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login} from "../../actions"
 import Spinner from "../shared/Spinner";
-import axios from "axios";
-
+import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
+import {RECAPTCHA_KEY} from "../../constants/index";
 
 class Login extends Component {
 
@@ -47,6 +47,10 @@ class Login extends Component {
         }
 
         return (
+
+
+
+
             <div>
                 <div className="container mt-5 pt-5">
                     <div className="row">
@@ -56,7 +60,7 @@ class Login extends Component {
                                     Please sign in
                                 </div>
                                 <div className="card-body col-8 mx-auto">
-                                    <form>
+                                    <form onSubmit={this.onSubmit}>
                                         <div className="form-group">
                                             <label htmlFor="exampleInputEmail1">Email address</label>
                                             <input name="email" value={this.state.email}
@@ -81,16 +85,37 @@ class Login extends Component {
                                             Register
                                         </Link>
                                     </form>
+                                    <br></br>
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey= {RECAPTCHA_KEY}
+                                        onChange={onChange}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         )
     }
 
 
+}
+
+
+
+const recaptchaRef = React.createRef();
+
+function onSubmit() {
+    const recaptchaValue = recaptchaRef.current.getValue();
+    this.props.onSubmit(recaptchaValue);
+}
+
+
+function onChange(value) {
+    console.log("Captcha value:", value);
 }
 
 const mapStateToProps = state => {
