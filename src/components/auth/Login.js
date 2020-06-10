@@ -6,6 +6,7 @@ import {login} from "../../actions"
 import Spinner from "../shared/Spinner";
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants/index";
+import "./login.css"
 
 class Login extends Component {
 
@@ -19,7 +20,6 @@ class Login extends Component {
         this.login = this.login.bind(this)
         this.changeHandler = this.changeHandler.bind(this)
     }
-
 
     changeHandler(event) {
         const name = event.target.name
@@ -37,7 +37,24 @@ class Login extends Component {
 
     login(e) {
         e.preventDefault()
-        this.props.login({email: this.state.email, password: this.state.password}, this.props)
+        const recaptchaValue = recaptchaRef.current.getValue();
+
+        if (this.validateFields(recaptchaValue)) {
+            this.props.login({email: this.state.email, password: this.state.password, token: recaptchaValue}, this.props)
+        }
+    }
+
+    validateFields(value) {
+        console.log("Captcha vaslue:", value);
+
+        if( value == "" || this.state.email == "" || this.state.password == "" ) {
+            let alert = document.querySelector(".alert-custom");
+            alert.style.display = "block";
+            alert.textContent = "Missing information"
+            return false
+        }
+
+        return true
     }
 
     render() {
@@ -47,10 +64,6 @@ class Login extends Component {
         }
 
         return (
-
-
-
-
             <div>
                 <div className="container mt-5 pt-5">
                     <div className="row">
@@ -60,23 +73,24 @@ class Login extends Component {
                                     Please sign in
                                 </div>
                                 <div className="card-body col-8 mx-auto">
-                                    <form onSubmit={this.onSubmit}>
+                                    <form>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Email address</label>
-                                            <input name="email" value={this.state.email}
+                                            <label htmlFor="inputEmail">Email address</label>
+                                            <input required name="email" value={this.state.email}
                                                    type="email" className="form-control"
-                                                   id="exampleInputEmail1"
+                                                   id="inputEmail"
                                                    onChange={this.changeHandler}
                                                    aria-describedby="emailHelp" placeholder="Enter email"/>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputPassword1">Password</label>
-                                            <input name="password" value={this.state.password}
+                                            <label htmlFor="inputPassword">Password</label>
+                                            <input required name="password" value={this.state.password}
                                                    type="password" className="form-control"
-                                                   id="exampleInputPassword1" placeholder="Password"
+                                                   id="inputPassword" placeholder="Password"
                                                    onChange={this.changeHandler}
                                             />
                                         </div>
+
                                         <button type="submit" className="btn btn-primary"
                                                 onClick={this.login}>
                                             Submit
@@ -84,13 +98,18 @@ class Login extends Component {
                                         <Link className="btn btn-success ml-1" to="/register">
                                             Register
                                         </Link>
+                                        <br></br>
+                                        <br></br>
+
+                                        <ReCAPTCHA
+                                            ref={recaptchaRef}
+                                            sitekey= {RECAPTCHA_KEY}
+                                            onChange={this.validateFields}
+
+                                        />
+                                        <p id="error" className="alert-custom"></p>
+
                                     </form>
-                                    <br></br>
-                                    <ReCAPTCHA
-                                        ref={recaptchaRef}
-                                        sitekey= {RECAPTCHA_KEY}
-                                        onChange={onChange}
-                                    />
                                 </div>
                             </div>
                         </div>
@@ -100,23 +119,8 @@ class Login extends Component {
 
         )
     }
-
-
 }
-
-
-
 const recaptchaRef = React.createRef();
-
-function onSubmit() {
-    const recaptchaValue = recaptchaRef.current.getValue();
-    this.props.onSubmit(recaptchaValue);
-}
-
-
-function onChange(value) {
-    console.log("Captcha value:", value);
-}
 
 const mapStateToProps = state => {
     return {
@@ -129,6 +133,5 @@ const mapDispatchToProps = (dispatch) => {
         login: (user, ownProps) => dispatch(login(user,ownProps)),
     }
 }
-
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

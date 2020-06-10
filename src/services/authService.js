@@ -7,6 +7,7 @@ export class AuthService {
 
 
     static login(data) {
+        console.log(data)
         return apiClient.post('auth', data)
     }
 

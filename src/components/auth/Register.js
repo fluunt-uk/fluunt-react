@@ -35,13 +35,10 @@ class Register extends Component {
 
     }
 
-
     register(e) {
         e.preventDefault()
         this.props.register(this.state.user, this.props)
     }
-
-
 
     render() {
 
