@@ -47,7 +47,7 @@ class Login extends Component {
     validateFields(value) {
         console.log("Captcha vaslue:", value);
 
-        if( value == "" || this.state.email == "" || this.state.password == "" ) {
+        if( value === "" || this.state.email === "" || this.state.password === "" ) {
             let alert = document.querySelector(".alert-custom");
             alert.style.display = "block";
             alert.textContent = "Missing information"
