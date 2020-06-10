@@ -13,6 +13,6 @@ test_async:
   script:
     - npm install
     - npm run build
-    only:
-        - master
-        - staging
+  only:
+    - tags
+    - master
