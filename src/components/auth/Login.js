@@ -64,59 +64,41 @@ class Login extends Component {
         }
 
         return (
-            <div>
-                <div className="container mt-5 pt-5">
-                    <div className="row">
-                        <div className="col-8 mx-auto">
-                            <div className="card">
-                                <div className="card-header">
-                                    Please sign in
-                                </div>
-                                <div className="card-body col-8 mx-auto">
-                                    <form>
-                                        <div className="form-group">
-                                            <label htmlFor="inputEmail">Email address</label>
-                                            <input required name="email" value={this.state.email}
-                                                   type="email" className="form-control"
-                                                   id="inputEmail"
-                                                   onChange={this.changeHandler}
-                                                   aria-describedby="emailHelp" placeholder="Enter email"/>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="inputPassword">Password</label>
-                                            <input required name="password" value={this.state.password}
-                                                   type="password" className="form-control"
-                                                   id="inputPassword" placeholder="Password"
-                                                   onChange={this.changeHandler}
-                                            />
-                                        </div>
+                <form >
+                    <h1>
+                        Sign in
+                    </h1>
+                    <div className="form-content">
+                        <input required name="email" value={this.state.email}
+                               type="email"
+                               id="email"
+                               onChange={this.changeHandler}
+                               aria-describedby="emailHelp" placeholder="email"/>
+                        <input required name="password" value={this.state.password}
+                               type="password"
+                               id="password" placeholder="password"
+                               onChange={this.changeHandler}
+                        />
+                        <br></br>
+                        <div className="button" onClick={this.login}>
+                            Log in
+                        </div>
+                        <div className="g-recaptcha">
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={RECAPTCHA_KEY}
+                                onChange={this.validateFields}
 
-                                        <button type="submit" className="btn btn-primary"
-                                                onClick={this.login}>
-                                            Submit
-                                        </button>
-                                        <Link className="btn btn-success ml-1" to="/register">
-                                            Register
-                                        </Link>
-                                        <br></br>
-                                        <br></br>
-
-                                        <ReCAPTCHA
-                                            ref={recaptchaRef}
-                                            sitekey= {RECAPTCHA_KEY}
-                                            onChange={this.validateFields}
-
-                                        />
-                                        <p id="error" className="alert-custom"></p>
-
-                                    </form>
-                                </div>
-                            </div>
+                            />
+                        </div>
+                        <br></br>
+                        <p id="error" className="alert-custom"></p>
+                        <div className="signup-message">
+                            <a href="#">Forgot your password?</a>
                         </div>
                     </div>
-                </div>
-            </div>
 
+                </form>
         )
     }
 }

@@ -20,11 +20,11 @@ export const login = (user, ownProps) => {
                 ownProps.history.push('/')
             } else {
                 dispatch({type: HIDE_SPINNER})
-                showErrorAlert(dispatch, 'failed operation')
+                showErrorAlert(dispatch, 'Please check your credentials and try again')
             }
         }, error => {
             dispatch({type: HIDE_SPINNER})
-            showErrorAlert(dispatch, 'failed operation' + error.toString())
+            showErrorAlert(dispatch, ' Please check your credentials and try again' )
         })
     }
 }
