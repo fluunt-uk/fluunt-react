@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {withRouter} from "react-router-dom"
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from "react-router-dom"
 import {connect} from 'react-redux'
 import {login} from "../../actions"
 import Spinner from "../shared/Spinner";
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants/index";
-import "./login.css"
+import "./login.scss"
+import Footer from "../layout/Footer"
 
 class Login extends Component {
 
@@ -45,7 +45,7 @@ class Login extends Component {
     }
 
     validateFields(value) {
-        console.log("Captcha vaslue:", value);
+        console.log("Captcha value:", value);
 
         if( value === "" || this.state.email === "" || this.state.password === "" ) {
             let alert = document.querySelector(".alert-custom");
@@ -64,41 +64,53 @@ class Login extends Component {
         }
 
         return (
-                <form >
-                    <h1>
-                        Sign in
-                    </h1>
-                    <div className="form-content">
-                        <input required name="email" value={this.state.email}
-                               type="email"
-                               id="email"
-                               onChange={this.changeHandler}
-                               aria-describedby="emailHelp" placeholder="email"/>
-                        <input required name="password" value={this.state.password}
-                               type="password"
-                               id="password" placeholder="password"
-                               onChange={this.changeHandler}
-                        />
-                        <br></br>
-                        <div className="button" onClick={this.login}>
-                            Log in
-                        </div>
-                        <div className="g-recaptcha">
-                            <ReCAPTCHA
-                                ref={recaptchaRef}
-                                sitekey={RECAPTCHA_KEY}
-                                onChange={this.validateFields}
+            <div>
+                <div className="row">
+                    <div className="col-12">
+                        <form>
+                            <h1>
+                                Sign in
+                            </h1>
+                            <div className="form-content">
+                                <input required name="email" value={this.state.email}
+                                       type="email"
+                                       id="email"
+                                       onChange={this.changeHandler}
+                                       aria-describedby="emailHelp" placeholder="email"/>
+                                <input required name="password" value={this.state.password}
+                                       type="password"
+                                       id="password" placeholder="password"
+                                       onChange={this.changeHandler}
+                                />
+                                <br></br>
+                                <div id="primary" className="button" onClick={this.login}>
+                                    Log in
+                                </div>
 
-                            />
-                        </div>
-                        <br></br>
-                        <p id="error" className="alert-custom"></p>
-                        <div className="signup-message">
-                            <a href="#">Forgot your password?</a>
-                        </div>
+                                <div id="secondary" className="button">
+                                    <Link to="/login">
+                                        Register
+                                    </Link>
+                                </div>
+
+                                <div className="g-recaptcha">
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey={RECAPTCHA_KEY}
+                                        onChange={this.validateFields}
+                                    />
+                                </div>
+                                <br></br>
+                                <p id="error" className="alert-custom"></p>
+                                <div className="signup-message">
+                                    <a href="#">Forgot your password?</a>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
-
-                </form>
+                </div>
+            </div>
         )
     }
 }

@@ -14,15 +14,19 @@ class Layout extends Component {
 
 
     getHeader() {
-        if (this.props.currentUser) {
-            return <Header/>
-        }
+        // if (this.props.currentUser) {
+        //     return <Header/>
+        // }
+
+        return <Header/>
     }
 
     getFooter() {
-        if (this.props.currentUser) {
-            return <Footer/>
-        }
+        // if (this.props.currentUser) {
+        //     return <Footer/>
+        // }
+
+        return <Footer/>
     }
 
     getBredcrumbs() {

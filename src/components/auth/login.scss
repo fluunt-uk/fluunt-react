@@ -1,9 +1,6 @@
-.alert-custom {
-    padding-top: 15px;
-    color: #9a0000;
-    display: none;
-}
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 
+/*** BOOTSTRAP OVERRIDE ***/
 .card-body {
     max-width: 100%;
 }
@@ -16,28 +13,21 @@
     padding-right: 3rem;
 }
 
-@media(max-width: 768px) {
-    .g-recaptcha {
-        transform:scale(0.87);
-        transform-origin:0 0;
-    }
+.row {
+    -webkit-justify-content: center;
 }
 
-@media(max-width: 515px) {
-    .g-recaptcha {
-        transform:scale(0.67);
-        transform-origin:0 0;
-    }
+.col-12 {
+    -webkit-justify-content: center;
+    display: flex;
+}
+/**************************/
+
+#root {
+    background: url("../../assets/login.png");
+    background-size: contain;
 }
 
-@media(max-width: 400px) {
-    .g-recaptcha {
-        transform:scale(0.57);
-        transform-origin:0 0;
-    }
-}
-
-@import "https://fonts.googleapis.com/css?family=Quicksand";
 *,
 *::before,
 *::after {
@@ -54,6 +44,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+}
+
+.alert-custom {
+    padding-top: 15px;
+    color: #9a0000;
+    display: none;
 }
 
 h1 {
@@ -75,7 +71,6 @@ a:hover {
 }
 
 .container {
-    display: flex;
     -webkit-display: box;
     -moz-display: box;
     -ms-display: flexbox;
@@ -83,11 +78,12 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding: 12%;
+    padding: 6%;
 }
 
 form {
-    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.22);
+    border: 5px solid black;
     padding: 2em;
     padding-bottom: 3em;
     border-radius: 8px;
@@ -97,9 +93,7 @@ form {
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    line-height: 1.5;
 }
 form input {
     color: #384047;
@@ -131,6 +125,16 @@ form input:focus {
     overflow: hidden;
     transition: all 200ms ease-in-out;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+.button#primary{
+    background-color: #3e95ed;
+}
+.button#secondary{
+    background-color: #025ab3;
+}
+
+.button a {
+    color: #FFF;
 }
 .button:hover {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);

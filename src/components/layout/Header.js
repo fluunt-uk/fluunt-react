@@ -4,6 +4,7 @@ import i18n from '../../i18n'
 import {withNamespaces} from 'react-i18next'
 import {logout} from "../../actions"
 import connect from "react-redux/es/connect/connect";
+import "./header.scss"
 
 
 class Header extends Component {
@@ -58,11 +59,11 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
-                <button type="button" className="btn btn-dark btn-sm" onClick={this.toBack}>
-                    <i className="fas fa-arrow-left"></i>
-                </button>
+                {/*<button type="button" className="btn btn-dark btn-sm" onClick={this.toBack}>*/}
+                {/*    <i className="fas fa-arrow-left"></i>*/}
+                {/*</button>*/}
 
-                <div className="container">
+                <div className="container no-padding">
 
                     <NavLink exact to="/" className="navbar-brand">Home</NavLink>
 
@@ -76,41 +77,47 @@ class Header extends Component {
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav mr-auto">
 
-                            <li className="nav-item dropdown">
-                                <a href="#/" className="nav-link dropdown-toggle"
-                                   id="navbarDropdownUsers"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Users
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdownUsers">
-                                    <NavLink exact className="dropdown-item" to="/users">
-                                        List Users
-                                    </NavLink>
-                                    <NavLink className="dropdown-item" to="/users/add">
-                                        Add User
-                                    </NavLink>
-                                </div>
-                            </li>
-
-                            <li className="nav-item dropdown">
-                                <a href="#/" className={"nav-link dropdown-toggle " + (this.isActive('adverts'))}
-                                   id="navbarDropdownAdverts"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Adverts
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdownAdverts">
-                                    <NavLink exact className="dropdown-item" to="/adverts">
-                                        List Adverts
-                                    </NavLink>
-                                    <NavLink className="dropdown-item" to="/adverts/add">
-                                        Add Adverts
-                                    </NavLink>
-                                </div>
+                            <li className="nav-item ">
+                                <NavLink to="/s" className="nav-link">
+                                    Item
+                                </NavLink>
+                                {/*<a href="#/" className={"nav-link dropdown-toggle " + (this.isActive('adverts'))}*/}
+                                {/*   id="navbarDropdownAdverts"*/}
+                                {/*   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                                {/*    Adverts*/}
+                                {/*</a>*/}
+                                {/*<div className="nav-item" aria-labelledby="navbarDropdownAdverts">*/}
+                                {/*    <NavLink exact className="dropdown-item" to="/adverts">*/}
+                                {/*        List Adverts*/}
+                                {/*    </NavLink>*/}
+                                {/*    <NavLink className="dropdown-item" to="/adverts/add">*/}
+                                {/*        Add Adverts*/}
+                                {/*    </NavLink>*/}
+                                {/*</div>*/}
                             </li>
 
                             <li className="nav-item">
-                                <NavLink to="/datatable" className="nav-link">
-                                    DataTable
+                                <NavLink to="/s" className="nav-link">
+                                    Item
+                                </NavLink>
+                                {/*<a href="#/" className={"nav-link dropdown-toggle " + (this.isActive('adverts'))}*/}
+                                {/*   id="navbarDropdownAdverts"*/}
+                                {/*   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                                {/*    Adverts*/}
+                                {/*</a>*/}
+                                {/*<div className="nav-item" aria-labelledby="navbarDropdownAdverts">*/}
+                                {/*    <NavLink exact className="dropdown-item" to="/adverts">*/}
+                                {/*        List Adverts*/}
+                                {/*    </NavLink>*/}
+                                {/*    <NavLink className="dropdown-item" to="/adverts/add">*/}
+                                {/*        Add Adverts*/}
+                                {/*    </NavLink>*/}
+                                {/*</div>*/}
+                            </li>
+
+                            <li className="nav-item">
+                                <NavLink to="/s" className="nav-link">
+                                    Item
                                 </NavLink>
                             </li>
                         </ul>
@@ -141,7 +148,7 @@ class Header extends Component {
                                    id="navbarDropdownMyAccount"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>
-                                    {this.props.currentUser.name}
+                                    {/*{this.props.currentUser.name}*/}
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMyAccount">
                                     <NavLink className="dropdown-item" to="/profil">My Account</NavLink>
