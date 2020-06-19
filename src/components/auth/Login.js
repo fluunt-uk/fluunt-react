@@ -6,7 +6,6 @@ import Spinner from "../shared/Spinner";
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants/index";
 import "./login.scss"
-import Footer from "../layout/Footer"
 
 class Login extends Component {
 
@@ -40,7 +39,7 @@ class Login extends Component {
         const recaptchaValue = recaptchaRef.current.getValue();
 
         if (this.validateFields(recaptchaValue)) {
-            this.props.login({email: this.state.email, password: this.state.password, token: recaptchaValue}, this.props)
+            this.props.login({email: this.state.email, password: this.state.password, recaptcha_token: recaptchaValue}, this.props)
         }
     }
 
@@ -97,7 +96,7 @@ class Login extends Component {
                                     <ReCAPTCHA
                                         ref={recaptchaRef}
                                         sitekey={RECAPTCHA_KEY}
-                                        onChange={this.validateFields}
+                                        //onChange={this.validateFields}
                                     />
                                 </div>
                                 <br></br>

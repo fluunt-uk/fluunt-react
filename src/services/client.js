@@ -4,7 +4,7 @@ import axios from 'axios';
 const getClientAxios = () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const options = {
-        baseURL: 'http://35.179.11.178:5000/',
+        baseURL: 'http://localhost:5000/',
         headers: {
             //TODO: remove, temporary for testing
             'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJzaWduaW5fdXNlciIsImV4cCI6MTY5ODU4ODY5MiwianRpIjoiTk9UX1NFVCIsImlhdCI6MTU4NzU4ODM5MiwiaXNzIjoiYXV0aCIsIm5iZiI6MTU4NzU4ODM5Miwic3ViIjoicmVnaXN0ZXIifQ.bQjWaMAxrl7dgK2JO5ZOBGXiGtf-O82tquyolRwYS3U",

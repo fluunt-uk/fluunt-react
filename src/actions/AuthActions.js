@@ -10,6 +10,7 @@ export const login = (user, ownProps) => {
 
         dispatch({type: SHOW_SPINNER})
 
+        console.log("and here?")
         AuthService.login(user).then(response => {
             if (response.status === 200) {
                 localStorage.setItem('currentUser', JSON.stringify(response.data))
@@ -24,7 +25,7 @@ export const login = (user, ownProps) => {
             }
         }, error => {
             dispatch({type: HIDE_SPINNER})
-            showErrorAlert(dispatch, ' Please check your credentials and try again' )
+            showErrorAlert(dispatch, ' Please check your credentials and try again' + error )
         })
     }
 }

@@ -7,8 +7,15 @@ export class AuthService {
 
 
     static login(data) {
+
         console.log(data)
-        return apiClient.post('auth', data)
+
+        const headers = {
+            'g-recaptcha-response': data.recaptcha_token
+        }
+        return apiClient.post('auth', data,  {
+            headers: headers
+        })
     }
 
     static register(data) {
