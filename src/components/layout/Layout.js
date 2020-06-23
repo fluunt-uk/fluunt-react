@@ -14,11 +14,9 @@ class Layout extends Component {
 
 
     getHeader() {
-        // if (this.props.currentUser) {
-        //     return <Header/>
-        // }
-
-        return <Header/>
+        if (this.props.currentUser) {
+            return <Header/>
+        }
     }
 
     getFooter() {

@@ -67,8 +67,8 @@ class Login extends Component {
                 <div className="row">
                     <div className="col-12">
                         <form>
-                            <h1>
-                                Sign in
+                            <h1 className="sign-in">
+                                Log in to Fluunt
                             </h1>
                             <div className="form-content">
                                 <input required name="email" value={this.state.email}
