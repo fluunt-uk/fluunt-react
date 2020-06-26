@@ -25,8 +25,6 @@
 
 #root {
     background-color: #f8f9faeb;
-    //background: url("../../assets/login.png");
-    //background: url(https://st3.depositphotos.com/3917667/17628/i/1600/depositphotos_176284796-stock-photo-the-collage-of-surprised-people.jpg);
     background-size: contain;
 }
 
@@ -47,11 +45,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+.logo{
+    margin-left:45%;
+    height:40px;
+    width:40px;
+    margin-bottom: 20px;
+}
 
 .alert-custom {
     padding-top: 15px;
     color: #9a0000;
     display: none;
+    font-size: 12px;
 }
 
 .sign-in {
@@ -62,16 +67,6 @@ body {
     margin-bottom: 1.2em;
     margin-top: 0.2em;
     font-size: 20px;
-}
-
-a {
-    font-size: 0.98em;
-    color: #fff;
-    text-decoration: none;
-
-    :hover {
-        color: green;
-    }
 }
 
 .container {
@@ -95,7 +90,7 @@ form {
     }
 
     padding: 2em 2em 3em;
-    border-radius: 8px;
+    border-radius: 4px;
     max-width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -119,59 +114,66 @@ form {
             outline: none;
         }
     }
-}
 
-.button {
-    font-weight: 600;
-    text-align: center;
-    font-size: 15px;
-    color: #FFF;
-    background-color: #4bc970;
-    width: 100%;
-    border: none;
-    border-radius: 4px;
-    padding: 0.8em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 200ms ease-in-out;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    .forgot-password {
 
-    &#primary{
-        background-color: #3e95ed;
+        a {
+            text-align: center;
+            cursor: none;
+            color: #466482;
+            font-size: 12px;
+        }
     }
 
-    &#secondary{
-        background-color: #025ab3;
-    }
+    .button {
+        font-weight: 600;
+        text-align: center;
+        font-size: 15px;
+        color: #FFF;
+        background-color: #4bc970;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        padding: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 200ms ease-in-out;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 
-    &:hover {
-        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-        transform: translateY(-4px);
-    }
+        &#primary{
+            background-color: #e6b86c;
+        }
 
-    span {
-        position: relative;
-        z-index: 1;
-    }
+        &#secondary{
+            background-color: #7390ad;
 
-    .circle {
-        position: absolute;
-        z-index: 0;
-        background-color: #35A556;
-        border-radius: 50%;
-        transform: scale(0);
-        opacity: 5;
-        height: 50px;
-        width: 50px;
-    }
+            a {
+                color: #FFF
+            }
+        }
 
-    .signup-message {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
+        &:hover {
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .circle {
+            position: absolute;
+            z-index: 0;
+            background-color: #35A556;
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 5;
+            height: 50px;
+            width: 50px;
+        }
     }
 }
 

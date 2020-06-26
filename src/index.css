@@ -1,10 +1,5 @@
-#root {
-    min-height: 100vh;
-}
-
 html {
     position: relative;
-    min-height: 100%;
 }
 
 body {
@@ -49,10 +44,6 @@ canvas {
     width: 100% !important;
     height: 400px !important;
 
-}
-
-a {
-    cursor: pointer;
 }
 
 .invalid-feedback {

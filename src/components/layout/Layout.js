@@ -20,11 +20,9 @@ class Layout extends Component {
     }
 
     getFooter() {
-        // if (this.props.currentUser) {
-        //     return <Footer/>
-        // }
-
-        return <Footer/>
+        if (this.props.currentUser) {
+            return <Footer/>
+        }
     }
 
     getBredcrumbs() {

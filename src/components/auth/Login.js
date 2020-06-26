@@ -6,6 +6,7 @@ import Spinner from "../shared/Spinner";
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants/index";
 import "./login.scss"
+import logo from "../../assets/logo.png"
 
 class Login extends Component {
 
@@ -23,9 +24,25 @@ class Login extends Component {
     changeHandler(event) {
         const name = event.target.name
         const value = event.target.value
+
+
         this.setState({
             [name]: value,
         })
+    }
+
+    isEmpty(event) {
+        const name = event.target.name
+        const value = event.target.value
+
+        let alert = document.querySelector(".alert-custom");
+
+        if (value === "") {
+            alert.style.display = "block";
+            alert.textContent = "Field " + name + "  cannot be empty"
+        }else {
+            alert.style.display = "none";
+        }
     }
 
     // componentWillReceiveProps(nextProps) {
@@ -39,14 +56,18 @@ class Login extends Component {
         const recaptchaValue = recaptchaRef.current.getValue();
 
         if (this.validateFields(recaptchaValue)) {
-            this.props.login({email: this.state.email, password: this.state.password, recaptcha_token: recaptchaValue}, this.props)
+            this.props.login({
+                email: this.state.email,
+                password: this.state.password,
+                recaptcha_token: recaptchaValue
+            }, this.props)
         }
     }
 
     validateFields(value) {
         console.log("Captcha value:", value);
 
-        if( value === "" || this.state.email === "" || this.state.password === "" ) {
+        if (value === "" || this.state.email === "" || this.state.password === "") {
             let alert = document.querySelector(".alert-custom");
             alert.style.display = "block";
             alert.textContent = "Missing information"
@@ -59,11 +80,12 @@ class Login extends Component {
     render() {
 
         if (this.props.loading) {
-            return <Spinner />
+            return <Spinner/>
         }
 
         return (
             <div>
+                <img className="logo" src={logo}/>
                 <div className="row">
                     <div className="col-12">
                         <form>
@@ -75,13 +97,16 @@ class Login extends Component {
                                        type="email"
                                        id="email"
                                        onChange={this.changeHandler}
+                                       onBlur={this.isEmpty}
                                        aria-describedby="emailHelp" placeholder="email"/>
                                 <input required name="password" value={this.state.password}
                                        type="password"
                                        id="password" placeholder="password"
                                        onChange={this.changeHandler}
+                                       onBlur={this.isEmpty}
                                 />
-                                <br></br>
+                                <p id="error" className="alert-custom"></p>
+
                                 <div id="primary" className="button" onClick={this.login}>
                                     Log in
                                 </div>
@@ -96,12 +121,10 @@ class Login extends Component {
                                     <ReCAPTCHA
                                         ref={recaptchaRef}
                                         sitekey={RECAPTCHA_KEY}
-                                        //onChange={this.validateFields}
                                     />
                                 </div>
                                 <br></br>
-                                <p id="error" className="alert-custom"></p>
-                                <div className="signup-message">
+                                <div className="forgot-password">
                                     <a href="#">Forgot your password?</a>
                                 </div>
 
@@ -113,6 +136,7 @@ class Login extends Component {
         )
     }
 }
+
 const recaptchaRef = React.createRef();
 
 const mapStateToProps = state => {
@@ -123,7 +147,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (user, ownProps) => dispatch(login(user,ownProps)),
+        login: (user, ownProps) => dispatch(login(user, ownProps)),
     }
 }
 
