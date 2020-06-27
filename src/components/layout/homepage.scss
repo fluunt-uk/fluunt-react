@@ -1,9 +1,16 @@
-$primary-color: rgba(3,121,188,0.41);
-$secondary-color: #6797b1;
-@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+@import "../scss/variables";
 
 body{
-  background-color: #D7D7D7;
+  background-color: #efefef;
+}
+
+.container {
+  padding: 1%;
+}
+
+.fa-user {
+  font-size: 25px;
+  color: $secondary-dark-color;
 }
 
 .banner {
@@ -13,7 +20,7 @@ body{
     text-align:center;
     font-size: 58px;
     color: white;
-    font-family: 'Ropa Sans';
+    font-family: $font;
   }
 }
 

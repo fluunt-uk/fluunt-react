@@ -5,6 +5,7 @@ import {withNamespaces} from 'react-i18next'
 import {logout} from "../../actions"
 import connect from "react-redux/es/connect/connect";
 import "./header.scss"
+import logo from "../../assets/logo.png"
 
 
 class Header extends Component {
@@ -65,7 +66,7 @@ class Header extends Component {
 
                 <div className="container no-padding">
 
-                    <NavLink exact to="/" className="navbar-brand">Home</NavLink>
+                    <NavLink exact to="/" className="navbar-brand"><img src={logo}></img></NavLink>
 
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -78,83 +79,53 @@ class Header extends Component {
                         <ul className="navbar-nav mr-auto">
 
                             <li className="nav-item ">
-                                <NavLink to="/s" className="nav-link">
-                                    Item
+                                <NavLink to="/login" className="nav-link">
+                                    Adverts
                                 </NavLink>
-                                {/*<a href="#/" className={"nav-link dropdown-toggle " + (this.isActive('adverts'))}*/}
-                                {/*   id="navbarDropdownAdverts"*/}
-                                {/*   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
-                                {/*    Adverts*/}
-                                {/*</a>*/}
-                                {/*<div className="nav-item" aria-labelledby="navbarDropdownAdverts">*/}
-                                {/*    <NavLink exact className="dropdown-item" to="/adverts">*/}
-                                {/*        List Adverts*/}
-                                {/*    </NavLink>*/}
-                                {/*    <NavLink className="dropdown-item" to="/adverts/add">*/}
-                                {/*        Add Adverts*/}
-                                {/*    </NavLink>*/}
-                                {/*</div>*/}
                             </li>
 
-                            <li className="nav-item">
-                                <NavLink to="/s" className="nav-link">
-                                    Item
-                                </NavLink>
-                                {/*<a href="#/" className={"nav-link dropdown-toggle " + (this.isActive('adverts'))}*/}
-                                {/*   id="navbarDropdownAdverts"*/}
-                                {/*   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
-                                {/*    Adverts*/}
-                                {/*</a>*/}
-                                {/*<div className="nav-item" aria-labelledby="navbarDropdownAdverts">*/}
-                                {/*    <NavLink exact className="dropdown-item" to="/adverts">*/}
-                                {/*        List Adverts*/}
-                                {/*    </NavLink>*/}
-                                {/*    <NavLink className="dropdown-item" to="/adverts/add">*/}
-                                {/*        Add Adverts*/}
-                                {/*    </NavLink>*/}
-                                {/*</div>*/}
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink to="/s" className="nav-link">
-                                    Item
-                                </NavLink>
-                            </li>
                         </ul>
 
                         <ul className="navbar-nav ml-auto">
 
-                            <li className="nav-item dropdown">
-                                <a href="#/" className="nav-link dropdown-toggle"
-                                   id="navbarDropdownLanguage"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Language
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
-                                    <button className="dropdown-item"
-                                            onClick={() => changeLanguage('ar')}>Arabic
-                                    </button>
-                                    <button className="dropdown-item"
-                                            onClick={() => changeLanguage('fr')}>French
-                                    </button>
-                                    <button className="dropdown-item"
-                                            onClick={() => changeLanguage('en')}>English
-                                    </button>
-                                </div>
+                            {/*<li className="nav-item dropdown">*/}
+                            {/*    <a href="#/" className="nav-link dropdown-toggle"*/}
+                            {/*       id="navbarDropdownLanguage"*/}
+                            {/*       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                            {/*        Language*/}
+                            {/*    </a>*/}
+                            {/*    <div className="dropdown-menu" aria-labelledby="navbarDropdownLanguage">*/}
+                            {/*        <button className="dropdown-item"*/}
+                            {/*                onClick={() => changeLanguage('ar')}>Arabic*/}
+                            {/*        </button>*/}
+                            {/*        <button className="dropdown-item"*/}
+                            {/*                onClick={() => changeLanguage('fr')}>French*/}
+                            {/*        </button>*/}
+                            {/*        <button className="dropdown-item"*/}
+                            {/*                onClick={() => changeLanguage('en')}>English*/}
+                            {/*        </button>*/}
+                            {/*    </div>*/}
+                            {/*</li>*/}
+
+                            <li className="nav-item">
+                                <NavLink to="/login" className="nav-link">
+
+                                    <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>
+                                </NavLink>
                             </li>
 
-                            <li className="nav-item dropdown">
-                                <a href="#/" className="nav-link dropdown-toggle"
-                                   id="navbarDropdownMyAccount"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>
-                                    {/*{this.props.currentUser.name}*/}
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdownMyAccount">
-                                    <NavLink className="dropdown-item" to="/profil">My Account</NavLink>
-                                    <button className="dropdown-item" onClick={this.logout}>Logout</button>
-                                </div>
-                            </li>
+                            {/*<li className="nav-item dropdown">*/}
+                            {/*    <a href="#/" className="nav-link dropdown-toggle"*/}
+                            {/*       id="navbarDropdownMyAccount"*/}
+                            {/*       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                            {/*        <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>*/}
+                            {/*        /!*{this.props.currentUser.name}*!/*/}
+                            {/*    </a>*/}
+                            {/*    <div className="dropdown-menu" aria-labelledby="navbarDropdownMyAccount">*/}
+                            {/*        <NavLink className="dropdown-item" to="/profil">My Account</NavLink>*/}
+                            {/*        <button className="dropdown-item" onClick={this.logout}>Logout</button>*/}
+                            {/*    </div>*/}
+                            {/*</li>*/}
                         </ul>
 
                     </div>
