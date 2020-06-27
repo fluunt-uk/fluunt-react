@@ -4,6 +4,8 @@ import {Switch} from 'react-router-dom';
 import asyncComponent from './AsyncComponent'
 import NotAuthenticated from "./NotAuthenticated";
 import Authorization from "./Authorization";
+import {RegisterFormik} from '../components/auth/RegisterFormik'
+
 
 
 const Homepage = asyncComponent(() =>
@@ -59,6 +61,7 @@ const Router = () => {
             <NotAuthenticated path="/login" component={Login}/>
             <NotAuthenticated path="/" component={Homepage}/>
             <NotAuthenticated path="/register" component={Register}/>
+            <NotAuthenticated path="/r" component={RegisterFormik}/>
 
             <Authorization path="/profil" component={Profil}/>
 

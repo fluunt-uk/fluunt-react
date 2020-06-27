@@ -3,6 +3,8 @@ import {withRouter} from "react-router-dom"
 import {connect} from 'react-redux'
 import {register} from "../../actions"
 import Spinner from "../shared/Spinner";
+import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
+import {RECAPTCHA_KEY} from "../../constants";
 
 
 class Register extends Component {
@@ -12,7 +14,8 @@ class Register extends Component {
         this.state = {
             pagetitle: 'Register',
             user: {
-                name: '',
+                firstname: '',
+                surname: '',
                 email: '',
                 password: '',
                 c_password: '',
@@ -37,7 +40,34 @@ class Register extends Component {
 
     register(e) {
         e.preventDefault()
-        this.props.register(this.state.user, this.props)
+        const recaptchaValue = recaptchaRef.current.getValue();
+
+        const { firstname, surname, email, password } = this.state.user;
+
+        if(this.validateFields(recaptchaValue)){
+            this.props.register({firstname: firstname, surname: surname, email: email, password: password}, this.props)
+        }
+    }
+
+    validateFields(value) {
+
+        // let alert = document.querySelector(".alert-custom");
+        // alert.style.display = "block";
+        // alert.textContent = "Missing information"
+
+        console.log("Captcha value:", value);
+
+        const { firstname, surname, email, password, c_password } = this.state.user;
+
+        if( value !== "" && firstname !== "" && surname !== "" && email !== "" && password !== "" && c_password !== "") {
+            if (password === c_password){
+                return true
+            }
+            console.log("Mismatching passwords")
+            return false
+        }
+        console.log("Missing Information")
+        return false
     }
 
     render() {
@@ -60,11 +90,19 @@ class Register extends Component {
                                 <div className="card-body col-10 mx-auto">
                                     <form>
                                         <div className="form-group">
-                                            <label htmlFor="name">Name</label>
-                                            <input name="name" value={this.state.user.name} type="text"
+                                            <label htmlFor="firstname">Firstname</label>
+                                            <input name="firstname" value={this.state.user.name} type="text"
                                                    className="form-control"
                                                    onChange={this.changeHandler}
-                                                   id="name" placeholder="Enter name"/>
+                                                   id="firstname" placeholder="Enter Firstname"/>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="surname">Surname</label>
+                                            <input name="surname" value={this.state.user.name} type="text"
+                                                   className="form-control"
+                                                   onChange={this.changeHandler}
+                                                   id="surname" placeholder="Enter Surname"/>
                                         </div>
 
                                         <div className="form-group">
@@ -96,6 +134,14 @@ class Register extends Component {
                                                 onClick={this.register}>
                                             Submit
                                         </button>
+
+                                        <div className="g-recaptcha">
+                                            <ReCAPTCHA
+                                                ref={recaptchaRef}
+                                                sitekey={RECAPTCHA_KEY}
+                                                onChange={this.validateFields}
+                                            />
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -105,9 +151,10 @@ class Register extends Component {
             </div>
         )
     }
-
-
 }
+
+const recaptchaRef = React.createRef();
+
 
 const mapStateToProps = state => {
     return {
