@@ -24,7 +24,7 @@ const Authorization = ({component: Component, permission, ...rest}) => {
 
             ) : (
                 <Redirect to={{
-                    pathname: '/login',
+                    pathname: '/',
                     state: {from: props.location}
                 }}/>
             )

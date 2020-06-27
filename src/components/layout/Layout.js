@@ -14,13 +14,13 @@ class Layout extends Component {
 
 
     getHeader() {
-        if (this.props.currentUser) {
+        if (this.props.currentUser || this.props.location.pathname == '/') {
             return <Header/>
         }
     }
 
     getFooter() {
-        if (this.props.currentUser) {
+        if (this.props.currentUser || this.props.location.pathname == '/') {
             return <Footer/>
         }
     }
@@ -52,11 +52,9 @@ class Layout extends Component {
         return (
             <div>
                 {this.getHeader()}
-                <div className="container">
                     {this.getBredcrumbs()}
                     <Alert/>
                     <Router/>
-                </div>
                 {this.getFooter()}
             </div>
 

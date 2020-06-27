@@ -84,7 +84,7 @@ class Login extends Component {
         }
 
         return (
-            <div>
+            <div className="container">
                 <img className="logo" src={logo}/>
                 <div className="row">
                     <div className="col-12">
