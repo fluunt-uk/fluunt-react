@@ -14,7 +14,7 @@ body{
 }
 
 .banner {
-  background-color: $primary-color;
+  background-color: $primary-light;
   height: 200px;
   .slogan {
     text-align:center;
@@ -36,7 +36,7 @@ body{
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
   .btn-primary {
-    background-color:$secondary-color;
+    background-color:$button-secondary;
     border: none;
     width: 15%;
     height: 90%;
@@ -70,7 +70,7 @@ body{
   background-color:white;
   height:150px;
   border-radius: 4px;
-  border: 1px solid $secondary-color;
+  border: 1px solid $primary-light;
 
   .job-spec {
     padding:20px;

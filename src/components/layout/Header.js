@@ -5,7 +5,7 @@ import {withNamespaces} from 'react-i18next'
 import {logout} from "../../actions"
 import connect from "react-redux/es/connect/connect";
 import "./header.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo_full.png"
 
 
 class Header extends Component {
