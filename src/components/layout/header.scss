@@ -1,9 +1,16 @@
+@import "../scss/variables";
+
 .container.no-padding {
     padding: 0;
+    max-width: 90%;
 }
 
 .navbar-brand {
     img {
         height: 40px;
     }
+}
+
+.nav-item {
+    font-family: $font;
 }

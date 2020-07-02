@@ -76,18 +76,29 @@ class Header extends Component {
                     </button>
 
                     <div className="collapse navbar-collapse">
-                        <ul className="navbar-nav mr-auto">
 
+
+                        <ul className="navbar-nav ml-auto">
                             <li className="nav-item ">
                                 <NavLink to="/login" className="nav-link">
                                     Adverts
                                 </NavLink>
                             </li>
-
-                        </ul>
-
-                        <ul className="navbar-nav ml-auto">
-
+                            <li className="nav-item ">
+                                <NavLink to="/login" className="nav-link">
+                                    Link
+                                </NavLink>
+                            </li>
+                            <li className="nav-item ">
+                                <NavLink to="/login" className="nav-link">
+                                    Link
+                                </NavLink>
+                            </li>
+                            <li className="nav-item ">
+                                <NavLink to="/login" className="nav-link">
+                                    Account
+                                </NavLink>
+                            </li>
                             {/*<li className="nav-item dropdown">*/}
                             {/*    <a href="#/" className="nav-link dropdown-toggle"*/}
                             {/*       id="navbarDropdownLanguage"*/}
@@ -107,12 +118,12 @@ class Header extends Component {
                             {/*    </div>*/}
                             {/*</li>*/}
 
-                            <li className="nav-item">
-                                <NavLink to="/login" className="nav-link">
+                            {/*<li className="nav-item">*/}
+                            {/*    <NavLink to="/login" className="nav-link">*/}
 
-                                    <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>
-                                </NavLink>
-                            </li>
+                            {/*        <i className="fas fa-user" style={{paddingRight: 10 + 'px'}}></i>*/}
+                            {/*    </NavLink>*/}
+                            {/*</li>*/}
 
                             {/*<li className="nav-item dropdown">*/}
                             {/*    <a href="#/" className="nav-link dropdown-toggle"*/}
