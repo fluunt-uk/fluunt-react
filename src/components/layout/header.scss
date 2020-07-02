@@ -1,3 +1,10 @@
 .container.no-padding {
     padding: 0;
 }
+
+.navbar-brand {
+    img {
+        height: 40px;
+        width: 40px;
+    }
+}

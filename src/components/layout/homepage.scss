@@ -1,0 +1,81 @@
+@import "../scss/variables";
+
+body{
+  background-color: #efefef;
+}
+
+.container {
+  padding: 1%;
+}
+
+.fa-user {
+  font-size: 25px;
+  color: $secondary-dark-color;
+}
+
+.banner {
+  background-color: $primary-color;
+  height: 200px;
+  .slogan {
+    text-align:center;
+    font-size: 58px;
+    color: white;
+    font-family: $font;
+  }
+}
+
+.search-bar {
+  position:relative;
+  top:-25px;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  width: calc(5% + 400px);
+  padding: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  .btn-primary {
+    background-color:$secondary-color;
+    border: none;
+    width: 15%;
+    height: 90%;
+    float: right;
+
+    p {
+      position: relative;
+      bottom: 5px;
+    }
+  }
+}
+
+.filter{
+  height: 500px;
+  background-color: white;
+  width: 100%;
+}
+
+@media only screen and (max-width: 580px) {
+  .filter {
+    display: none;
+    background-color: red;
+  }
+
+  .col-sm-4 {
+    padding: 5px;
+  }
+}
+
+.job-card {
+  background-color:white;
+  height:150px;
+  border-radius: 4px;
+  border: 1px solid $secondary-color;
+
+  .job-spec {
+    padding:20px;
+  }
+}
+
+
+

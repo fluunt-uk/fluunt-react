@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, withRouter} from "react-router-dom"
+import {Link, NavLink, withRouter} from "react-router-dom"
 import {connect} from 'react-redux'
 import {login} from "../../actions"
 import Spinner from "../shared/Spinner";
@@ -84,8 +84,8 @@ class Login extends Component {
         }
 
         return (
-            <div>
-                <img className="logo" src={logo}/>
+            <div className="container pad-6">
+                <NavLink exact to="/" ><img className="logo" src={logo}/></NavLink>
                 <div className="row">
                     <div className="col-12">
                         <form>

@@ -6,8 +6,8 @@ import NotAuthenticated from "./NotAuthenticated";
 import Authorization from "./Authorization";
 
 
-const Dashboard = asyncComponent(() =>
-    import('../components/layout/Dashboard').then(module => module.default)
+const Homepage = asyncComponent(() =>
+    import('../components/layout/Homepage').then(module => module.default)
 )
 
 // const Adverts = asyncComponent(() =>
@@ -51,13 +51,13 @@ const Router = () => {
 
     return (
         <Switch>
-            <Authorization exact path='/' component={Dashboard}/>
             {/*<Authorization  path='/adverts' component={Adverts}/>*/}
 
-            <Authorization exact path='/users' component={ListUser} permission="admin"/>
-            <Authorization path='/users/add' component={CreateUser} permission="admin"/>
+            <Authorization exact path='/users' component={ListUser} permission="crud"/>
+            <Authorization path='/users/add' component={CreateUser} permission="crud"/>
 
             <NotAuthenticated path="/login" component={Login}/>
+            <NotAuthenticated path="/" component={Homepage}/>
             <NotAuthenticated path="/register" component={Register}/>
 
             <Authorization path="/profil" component={Profil}/>
