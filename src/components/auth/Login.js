@@ -6,7 +6,7 @@ import Spinner from "../shared/Spinner";
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants/index";
 import "./login.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo_full.png"
 
 class Login extends Component {
 
