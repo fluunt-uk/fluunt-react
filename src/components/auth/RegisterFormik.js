@@ -1,10 +1,13 @@
-import React from 'react';
-import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
+import React, {Component} from 'react'
+import { Formik, FormikProps, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import * as Yup from 'yup';
 import ReCAPTCHA from "react-google-recaptcha/lib/esm/recaptcha-wrapper";
 import {RECAPTCHA_KEY} from "../../constants";
+import {register} from "../../actions";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
-export class RegisterFormik extends React.Component {
+class RegisterFormik extends Component {
 
     validateCaptcha(val) {
         return val !== "";
@@ -35,22 +38,25 @@ export class RegisterFormik extends React.Component {
                         .required('Required'),
                     password: Yup.string()
                         .required('Required')
-                        .min(8, 'Password is too short - should be 8 chars minimum.')
+                        .min(2, 'Password is too short - should be 8 chars minimum.')
                         .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
                     c_password: Yup.string()
                         .required('Required')
                         .oneOf([Yup.ref("password"), null], "Passwords must match")
                 })}
 
-                onSubmit={fields => {
+                onSubmit={(values, actions) => {
                     const recaptchaValue = recaptchaRef.current.getValue();
-                    console.log(fields, recaptchaValue)
+
                     if(this.validateCaptcha(recaptchaValue)) {
-                        // this.props.register(fields)
-                        console.log("Success")
-                        this.props.register({firstname: fields.first_name, surname: fields.surname, email: fields.email, password: fields.password}, this.props)
+                        this.props.register({
+                            firstname: values.first_name,
+                            surname: values.surname,
+                            email: values.email,
+                            password: values.password,
+                            recaptcha_token: recaptchaValue
+                        }, this.props)
                     }
-                    console.log("Failed")
                 }}
 
                 render={({ errors, status, touched }) => (
@@ -99,3 +105,17 @@ export class RegisterFormik extends React.Component {
 }
 
 const recaptchaRef = React.createRef();
+
+const mapStateToProps = state => {
+    return {
+        loading: state.spinner.loading,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        register: (user, ownProps) => dispatch(register(user, ownProps)),
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RegisterFormik))

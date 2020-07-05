@@ -4,9 +4,6 @@ import {Switch} from 'react-router-dom';
 import asyncComponent from './AsyncComponent'
 import NotAuthenticated from "./NotAuthenticated";
 import Authorization from "./Authorization";
-import {RegisterFormik} from '../components/auth/RegisterFormik'
-
-
 
 const Homepage = asyncComponent(() =>
     import('../components/layout/Homepage').then(module => module.default)
@@ -49,6 +46,10 @@ const Datatable = asyncComponent(() =>
     import('../components/datatable/datatable').then(module => module.default)
 )
 
+const RegisterFormik = asyncComponent(() =>
+    import('../components/auth/RegisterFormik').then(module => module.default)
+)
+
 const Router = () => {
 
     return (
@@ -59,7 +60,7 @@ const Router = () => {
             <Authorization path='/users/add' component={CreateUser} permission="crud"/>
 
             <NotAuthenticated path="/login" component={Login}/>
-            <NotAuthenticated path="/" component={Homepage}/>
+            {/*<NotAuthenticated path="/" component={Homepage}/>*/}
             <NotAuthenticated path="/register" component={Register}/>
             <NotAuthenticated path="/r" component={RegisterFormik}/>
 

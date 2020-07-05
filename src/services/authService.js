@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     static register(data) {
-        return apiClient.post('register', data)
+        return apiClient.put('account', data)
     }
 
     static logout() {

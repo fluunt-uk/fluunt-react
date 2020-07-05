@@ -4,11 +4,12 @@ import axios from 'axios';
 const getClientAxios = () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const options = {
-        baseURL: 'http://localhost:5000/',
+        baseURL: 'http://localhost:5001/',
         headers: {
             //TODO: remove, temporary for testing
-            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJzaWduaW5fdXNlciIsImV4cCI6MTY5ODU4ODY5MiwianRpIjoiTk9UX1NFVCIsImlhdCI6MTU4NzU4ODM5MiwiaXNzIjoiYXV0aCIsIm5iZiI6MTU4NzU4ODM5Miwic3ViIjoicmVnaXN0ZXIifQ.bQjWaMAxrl7dgK2JO5ZOBGXiGtf-O82tquyolRwYS3U",
-            'Content-Type': 'application/json'
+            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJyZWdpc3Rlcl91c2VyIiwiZXhwIjoxNjk3ODA0NTY3LCJqdGkiOiJOT1RfU0VUIiwiaWF0IjoxNTg3NTg4NTY3LCJpc3MiOiJhdXRoIiwibmJmIjoxNTg3NTg4NTY3LCJzdWIiOiIifQ.gYZSbRWcEAjQWaiTdQBBT3g6Woat8BC9DAbV_u6Iy-I",
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : '*'
         }
     };
 
