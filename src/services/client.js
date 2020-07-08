@@ -7,9 +7,7 @@ const getClientAxios = () => {
         baseURL: 'http://localhost:5001/',
         headers: {
             //TODO: remove, temporary for testing
-            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJyZWdpc3Rlcl91c2VyIiwiZXhwIjoxNjk3ODA0NTY3LCJqdGkiOiJOT1RfU0VUIiwiaWF0IjoxNTg3NTg4NTY3LCJpc3MiOiJhdXRoIiwibmJmIjoxNTg3NTg4NTY3LCJzdWIiOiIifQ.gYZSbRWcEAjQWaiTdQBBT3g6Woat8BC9DAbV_u6Iy-I",
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : '*'
+            'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJyZWdpc3Rlcl91c2VyIiwiZXhwIjoxNjk3ODA0NTY3LCJqdGkiOiJOT1RfU0VUIiwiaWF0IjoxNTg3NTg4NTY3LCJpc3MiOiJhdXRoIiwibmJmIjoxNTg3NTg4NTY3LCJzdWIiOiIifQ.gYZSbRWcEAjQWaiTdQBBT3g6Woat8BC9DAbV_u6Iy-I"
         }
     };
 

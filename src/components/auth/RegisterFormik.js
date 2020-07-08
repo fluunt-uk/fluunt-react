@@ -17,7 +17,7 @@ class RegisterFormik extends Component {
         return(
             <Formik
                 initialValues={{
-                    first_name: '',
+                    firstname: '',
                     surname: '',
                     email: '',
                     password: '',
@@ -25,7 +25,7 @@ class RegisterFormik extends Component {
                 }}
 
                 validationSchema={Yup.object({
-                    first_name: Yup.string()
+                    firstname: Yup.string()
                         .min(3, 'Must be at least 3 characters.')
                         .max(15, 'Must be less than 15 characters or less')
                         .required('Required'),
@@ -38,7 +38,7 @@ class RegisterFormik extends Component {
                         .required('Required'),
                     password: Yup.string()
                         .required('Required')
-                        .min(2, 'Password is too short - should be 8 chars minimum.')
+                        .min(8, 'Password is too short - should be 8 chars minimum.')
                         .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
                     c_password: Yup.string()
                         .required('Required')
@@ -49,8 +49,9 @@ class RegisterFormik extends Component {
                     const recaptchaValue = recaptchaRef.current.getValue();
 
                     if(this.validateCaptcha(recaptchaValue)) {
+                        console.log(values)
                         this.props.register({
-                            firstname: values.first_name,
+                            firstname: values.firstname,
                             surname: values.surname,
                             email: values.email,
                             password: values.password,
@@ -63,8 +64,8 @@ class RegisterFormik extends Component {
                     <Form>
                         <div>
                             <label htmlFor="firstname">Firstname</label>
-                            <Field name="first_name" type="text" className={'form-control' + (errors.first_name && touched.first_name ? ' is-invalid' : '')} />
-                            <ErrorMessage name="first_name" component="div" className="invalid-feedback" />
+                            <Field name="firstname" type="text" className={'form-control' + (errors.firstname && touched.firstname ? ' is-invalid' : '')} />
+                            <ErrorMessage name="firstname" component="div" className="invalid-feedback" />
                         </div>
                         <div>
                             <label htmlFor="surname">Surname</label>

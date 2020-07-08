@@ -40,7 +40,7 @@ export const register = (user, ownProps) => {
         dispatch({type: SHOW_SPINNER})
 
         AuthService.register(user).then(response => {
-            if (response.status === 201) {
+            if (response.status === 200) {
                 localStorage.setItem('currentUser', JSON.stringify(response.data))
                 dispatch({type: HIDE_SPINNER})
                 dispatch({type: AUTH_SUCCESS})
