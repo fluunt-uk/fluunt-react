@@ -1,51 +1,59 @@
-# Example how to Consume <a href="https://github.com/RiadhRahmi/example-api-laravel" target="_blank"> REST API </a>  with React 
-All the content is&nbsp;FREE&nbsp;but I still need your help https://www.patreon.com/codimth
-<img src="https://codimth.com/sites/default/files/inlineimages/become_a_patron_button.png" />
-https://www.patreon.com/codimth
-
-<img src="https://github.com/RiadhRahmi/reactjs-consume-rest-api/blob/master/public/app.gif" width="100%"/>
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![CircleCI](https://circleci.com/gh/ProjectReferral/Get-me-in/tree/master.svg?style=svg&circle-token=632ab80f9b534a6dab955b1f27f267b00b700ac4)](https://circleci.com/gh/ProjectReferral/Get-me-in/tree/master)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat)]()
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm devstart`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### `npm build && npm start`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in the production mode.<br>
 
-### `npm run build`
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# Referral Marketing System
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technical Overview
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+All the current microservices are built using GO with a mix of request-driven and event-driven architecture. For event-driven, we using RabbitMQ to broadcast messages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Current API:
+- [dev complete]Authentication API(auth-API) - handles the lifecycle of JSON Web Tokens(JWT).
+- [dev complete]Account API(account-API) - handles all the CRUD operations to do with users.
+- [dev complete]Marketing API(marketing-API) - handles all the CRUD operations to do with job adverts.
+- [Under dev]Customer API(customer-API) - handles email confirmations, reset passwords and any other communications between the consumer and producer.
+- [under dev]Payment API - integrated with Stripe Pay, it will handle payments and subscriptions.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+#### New services under development/analysis:
+- Messaging Service(msg-service) - handles instant messaging between users.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Front-end:
+Front end is designed using React and Redux.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Deploy process:
+We using GitLab to manage our build pipeline. To manage our infrastructure, we are using Docker and AWS.
+
+#### Future work:
+- Service orchestration using K8s or Docker Swarms
+- Setup ELB(Elastic Load Balancer)
+- Terraform to manage AWS infrastructure
+- Setup Grafana
+
+
+## High level overview
+![High-level Architecture](high-level.png)
+
+
