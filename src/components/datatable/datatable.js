@@ -44,16 +44,18 @@ class DataTable extends Component {
 
     render() {
         return (
-            <div className="container" style={{marginTop: 50}}>
-                <BootstrapTable
-                    striped
-                    hover
-                    keyField='id'
-                    data={this.state.products}
-                    columns={this.state.columns}
-                    filter={ filterFactory() }
-                    pagination={ paginationFactory() }
-                />
+            <div className="outer-container">
+                <div className="container" style={{marginTop: 50}}>
+                    <BootstrapTable
+                        striped
+                        hover
+                        keyField='id'
+                        data={this.state.products}
+                        columns={this.state.columns}
+                        filter={ filterFactory() }
+                        pagination={ paginationFactory() }
+                    />
+                </div>
             </div>
         );
     }
